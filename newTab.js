@@ -646,7 +646,7 @@ document.addEventListener("DOMContentLoaded", () => {
       const taskItem = document.createElement("li");
       taskItem.classList.add("draggable");
       taskItem.innerHTML = `
-        <input type="checkbox" ${task.completed ? "checked" : ""} />
+        <input type="checkbox" ${task.completed ? "checked" : ""} class="task-checkbox" />
         <div class="task-text" contenteditable="true" placeholder="New task">${
           task.text
         }</div>
@@ -949,4 +949,35 @@ document.addEventListener("DOMContentLoaded", () => {
 
     tasksContainer.classList.remove("hidden");
   }
+
+  const encouragementMessages = [
+    "Great job!",
+    "You're making progress!",
+    "Keep going!",
+    "Awesome work!",
+    "You're doing fantastic!"
+  ];
+
+  function showBubbleMessage(message) {
+    const bubble = document.getElementById("bubble-message");
+    if (!bubble) return;
+    bubble.textContent = message;
+    bubble.classList.remove("hidden");
+    
+    // Hide the bubble after 2 seconds
+    setTimeout(() => {
+      bubble.classList.add("hidden");
+    }, 2000);
+  }
+
+  document.addEventListener("click", (e) => {
+    if (e.target && e.target.classList.contains("task-checkbox")) {
+      if (e.target.checked) {
+        const randomMessage = encouragementMessages[
+          Math.floor(Math.random() * encouragementMessages.length)
+        ];
+        showBubbleMessage(randomMessage);
+      }
+    }
+  });
 });

@@ -487,4 +487,26 @@ input[type="checkbox"]:checked+.task-text {
     text-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
     opacity: 0.95;
     animation: welcomeFadeIn 1s ease-out forwards;
-    }
+}
+
+.speech-bubble {
+    position: absolute;
+    background: #fff;
+    border: 2px solid #ccc;
+    border-radius: 8px;
+    padding: 8px 12px;
+    font-size: 0.9rem;
+    width: 180px;
+    text-align: center;
+    box-shadow: 2px 2px 8px rgba(0,0,0,0.1);
+    top: 500px; 
+    left: 800px;
+    transition: opacity 0.3s ease-in-out;
+    opacity: 1;
+    z-index: 9999;
+}
+
+.speech-bubble.hidden {
+    display: none;
+    opacity: 0;
+}
