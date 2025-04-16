@@ -412,6 +412,20 @@ document.addEventListener("DOMContentLoaded", () => {
       showHoverCircles(); // Show hover circles in the initial state
       changeBackgroundWithSlide(initialBackground);
     }
+
+    const quotes = [
+      "You can handle anything that comes your way.",
+      "Believe in yourself and take on your dreams.",
+      "Every day is a new chance to grow.",
+      "Big journeys begin with small steps.",
+      "Believe you can and you're halfway there.",
+      "Your only limit is you.",
+    ];
+    const randomQuote = quotes[Math.floor(Math.random() * quotes.length)];
+    const quoteOverlay = document.getElementById("quote-overlay");
+    if (quoteOverlay) {
+      quoteOverlay.textContent = randomQuote;
+    }
   });
 
   categoriesContainer.addEventListener("click", (event) => {
